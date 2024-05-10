@@ -1,5 +1,6 @@
-import ContainerResult from "./components/ContainerResult";
-import ListVertical from "./components/ListVertical";
+import React from "react";
+import ContainerResult from "./components/containerResult";
+import ListVertical from "./components/listVertical";
 import "./styles/App.css";
 
 function App() {

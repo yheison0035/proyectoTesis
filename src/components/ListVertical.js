@@ -1,6 +1,6 @@
 import React from "react";
 
-const ListVertical = () => {
+const ListVertical = ({ selectComponent }) => {
   return (
     <div className="container-list">
       <ul>
@@ -8,13 +8,9 @@ const ListVertical = () => {
           <p className="title">Informes</p>
         </li>
         <li>
-          <p className="items-list">Proveedores</p>
-        </li>
-        <li>
-          <p className="items-list">Proponentes por Proceso</p>
-        </li>
-        <li>
-          <p className="items-list">Contratos cancelados</p>
+          <p className="items-list" onClick={() => selectComponent(1)}>
+            Proveedores
+          </p>
         </li>
       </ul>
     </div>
