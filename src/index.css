@@ -31,12 +31,20 @@ th {
 
 .btn-search {
   cursor: pointer;
-  background-color: #f3f3f3;
+  background-color: #403737;
   padding: 10px 20px;
+  color: #fff;
+  font-weight: bold;
   border: 1px solid #eee;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
+}
+
+.btn-search:hover {
+  border: 1px solid #403737;
+  background-color: #fff;
+  color: #403737;
 }

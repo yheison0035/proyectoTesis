@@ -3,12 +3,17 @@ import { getDepartament } from "../../utils/api";
 
 const DepartComponent = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const searchRef = useRef(null);
 
   const handleSearch = async () => {
     const value = searchRef.current.value;
-    const result = await getDepartament(value);
-    setData(result);
+    if (value) {
+      setLoading(true);
+      const result = await getDepartament(value);
+      setLoading(false);
+      setData(result);
+    }
   };
 
   return (
@@ -33,7 +38,8 @@ const DepartComponent = () => {
               <th>Municipio</th>
               <th>Nombre</th>
             </tr>
-            {data &&
+            {!loading ? (
+              data &&
               data.length > 0 &&
               data.map((item, index) => {
                 let { codigo, municipio, nombre } = item;
@@ -44,7 +50,12 @@ const DepartComponent = () => {
                     <td>{nombre}</td>
                   </tr>
                 );
-              })}
+              })
+            ) : (
+              <tr>
+                <td colSpan="3">Cargando...</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </li>

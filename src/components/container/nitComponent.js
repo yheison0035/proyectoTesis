@@ -3,12 +3,18 @@ import { getNit } from "../../utils/api";
 
 const NitComponent = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const searchRef = useRef(null);
 
   const handleSearch = async () => {
     const value = searchRef.current.value;
-    const result = await getNit(value);
-    setData(result);
+    if (value) {
+      setLoading(true);
+      const result = await getNit(value);
+      setLoading(false);
+      setData(result);
+    }
   };
 
   return (
@@ -35,7 +41,8 @@ const NitComponent = () => {
               <th>Tipo empresa</th>
               <th>Nombre representante legal</th>
             </tr>
-            {data &&
+            {!loading ? (
+              data &&
               data.length > 0 &&
               data.map((item, index) => {
                 let {
@@ -54,7 +61,12 @@ const NitComponent = () => {
                     <td>{nombre_representante_legal}</td>
                   </tr>
                 );
-              })}
+              })
+            ) : (
+              <tr>
+                <td colSpan="5">Cargando...</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </li>
