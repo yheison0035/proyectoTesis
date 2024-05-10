@@ -1,6 +1,6 @@
 import React from "react";
-import ContainerResult from "./components/containerResult";
-import ListVertical from "./components/listVertical";
+import ContainerResult from "./components/ContainerResult.js";
+import ListVertical from "./components/ListVertical.js";
 import "./styles/App.css";
 
 function App() {
