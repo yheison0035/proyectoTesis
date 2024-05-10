@@ -1,6 +1,5 @@
 .container {
     width: 100%;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,16 +25,26 @@ ul {
 
 .container .container-result {
     width: 100%;
-    height: 100vh;
     border: 1px solid #ccc;
-    padding: 30px 0;
-    display: grid;
-    justify-content: center;
-    align-items: center;
+    padding: 30px 20px;
+}
+
+.container .container-result ul {
+    margin: 50px 0;
+}
+
+.container .container-result p {
+    font-weight: bold;
+    border-bottom: 1px solid #403737;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
 }
 
 .container .container-result .scrollable-tbody {
     height: 400px;
+    width: 700px;
     overflow-y: auto;
     display: block;
 }
